@@ -2,7 +2,7 @@
 
 osname=$(cat /etc/os-release | grep ID_LIKE)
 pass=$(openssl rand -base64 12)
-ip=$(ip a | grep inet | awk '{print$2}' | grep /24 | rev | cut -c4- | rev)
+ip=$(ip a | grep inet | awk '{print$2}' | grep -E "/23|/24|/25" | rev | cut -c4- | rev)
 
 grep -i fedora /etc/os-release > /dev/null && osname='centos'
 echo "centos"
