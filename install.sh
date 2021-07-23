@@ -5,7 +5,6 @@ pass=$(openssl rand -base64 12)
 ip=$(ip a | grep inet | awk '{print$2}' | grep -E "/23|/24|/25" | rev | cut -c4- | rev)
 
 grep -i fedora /etc/os-release > /dev/null && osname='centos'
-echo "centos"
 
 if [[ $osname = "ID_LIKE=debian" ]]
 then
